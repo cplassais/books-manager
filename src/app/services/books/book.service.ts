@@ -33,7 +33,6 @@ export class BookService {
   }
   switchStatus(bookId: number, newStatus: string) {
     const booksToEdit = this.books.getValue();
-
     for (let book of booksToEdit) {
       if (book.id === bookId) {
         book.status = newStatus;

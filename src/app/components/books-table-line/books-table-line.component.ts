@@ -16,16 +16,13 @@ export class BooksTableLineComponent implements OnInit, OnChanges {
 
   constructor(private booksService: BookService) {}
 
-  ngOnInit(): void {
-    //this.setNextStatus();
-  }
+  ngOnInit(): void {}
   ngOnChanges() {
-    this.setNextStatus;
+    this.setNextStatus();
   }
 
   onClickSwitchAllStatus() {
     this.booksService.switchStatus(this.id, this.nextStatus);
-    this.setNextStatus();
   }
   private setNextStatus() {
     if (this.status === 'Libre') {
