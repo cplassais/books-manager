@@ -2,6 +2,12 @@
 <td>{{title}}</td>
 <td>{{author}}</td>
 <td>{{status}}</td>
-<td><button (click)="onClickSwitchAllStatus()" class="btn btn-outline-dark">
+<td>
+  <button (click)="onClickSwitchAllStatus()" class="btn btn-outline-dark me-2">
     Basculer en {{nextStatus | lowercase}}
-  </button></td>
+  </button>
+  <button [routerLink]="['/books', id]"
+          class="btn btn-primary">
+    DETAILS
+  </button>
+</td>

@@ -1,5 +1,5 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { BookService } from 'src/app/services/books/book.service';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {BookService} from 'src/app/services/books/book.service';
 
 @Component({
   selector: '[app-books-table-line]',
@@ -14,9 +14,13 @@ export class BooksTableLineComponent implements OnInit, OnChanges {
 
   nextStatus: string;
 
-  constructor(private booksService: BookService) {}
+  constructor(private booksService: BookService) {
 
-  ngOnInit(): void {}
+  }
+
+  ngOnInit(): void {
+  }
+
   ngOnChanges() {
     this.setNextStatus();
   }
@@ -24,6 +28,7 @@ export class BooksTableLineComponent implements OnInit, OnChanges {
   onClickSwitchAllStatus() {
     this.booksService.switchStatus(this.id, this.nextStatus);
   }
+
   private setNextStatus() {
     if (this.status === 'Libre') {
       this.nextStatus = 'Pris';

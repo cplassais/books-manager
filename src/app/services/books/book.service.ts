@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Book } from '../../models/book.model';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
+import {Book} from '../../models/book.model';
 
 @Injectable({
   providedIn: 'root',
@@ -26,11 +26,13 @@ export class BookService {
     ];
     this.books = new BehaviorSubject<Array<Book>>(booksToPush);
   }
+
   onClickSwitchAllStatus(newStatus: string) {
     const booksToEdit = this.books.getValue();
     booksToEdit.forEach((book) => (book.status = newStatus));
     this.books.next(booksToEdit);
   }
+
   switchStatus(bookId: number, newStatus: string) {
     const booksToEdit = this.books.getValue();
     for (let book of booksToEdit) {
@@ -40,5 +42,20 @@ export class BookService {
         break;
       }
     }
+  }
+
+  getBookById(bookId: number): Promise<Book> {
+    return new Promise<Book>(
+      (res, rej) => {
+        const books = this.books.getValue();
+
+        for (let book of books) {
+          if (book.id === bookId) {
+            res(book);
+            break;
+          }
+        }
+      }
+    );
   }
 }
