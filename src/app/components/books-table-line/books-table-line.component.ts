@@ -7,12 +7,12 @@ import {BookService} from 'src/app/services/books/book.service';
   styleUrls: ['./books-table-line.component.css'],
 })
 export class BooksTableLineComponent implements OnInit, OnChanges {
-  @Input() id: number;
-  @Input() title: string;
-  @Input() author: string;
-  @Input() status: string;
+  @Input() id!: number;
+  @Input() title!: string;
+  @Input() author!: string;
+  @Input() status!: string;
 
-  nextStatus: string;
+  nextStatus!: string;
 
   constructor(private booksService: BookService) {
 

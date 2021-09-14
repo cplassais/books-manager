@@ -1,8 +1,9 @@
-<h2 class="text-center">Books Manager</h2>
-
-<button
-  *ngIf="isConnected"
-  class="btn btn-outline-dark"
-  (click)="onClickSignout()">
-  ME DÉCONNECTER
-</button>
+<div class="position-relative">
+  <h2 class="text-center">Books Manager</h2>
+  <button
+    *ngIf="isConnected"
+    class="btn btn-outline-dark position-absolute top-0 end-0 mt-2"
+    (click)="onClickSignOut()">
+    ME DÉCONNECTER
+  </button>
+</div>

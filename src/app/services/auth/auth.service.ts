@@ -16,8 +16,13 @@ export class AuthService {
     return new Promise<void | string>(
       (res, rej) => {
         setTimeout(() => {
-          this.token.next('azertyuiop');
-          res();
+          if (email === 'plassais.christophe@gmail.com' && password === 'azerty') {
+            this.token.next('azertyuiop');
+            res();
+          } else {
+            rej('Les identifiants sont incorrects');
+          }
+
         }, 300);
       }
     )

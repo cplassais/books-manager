@@ -10,7 +10,7 @@ import {Subscription} from "rxjs";
 })
 export class BooksViewComponent implements OnInit, OnDestroy {
   books: Array<Book>;
-  booksSub: Subscription
+  booksSub!: Subscription
 
   constructor(private booksService: BookService) {
     this.books = [];

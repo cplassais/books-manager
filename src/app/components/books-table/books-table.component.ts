@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Book } from 'src/app/models/book.model';
+import {Component, Input, OnInit} from '@angular/core';
+import {Book} from 'src/app/models/book.model';
 
 @Component({
   selector: 'app-books-table',
@@ -7,8 +7,11 @@ import { Book } from 'src/app/models/book.model';
   styleUrls: ['./books-table.component.css'],
 })
 export class BooksTableComponent implements OnInit {
-  @Input() books: Array<Book>;
-  constructor() {}
+  @Input() books!: Array<Book>;
 
-  ngOnInit(): void {}
+  constructor() {
+  }
+
+  ngOnInit(): void {
+  }
 }

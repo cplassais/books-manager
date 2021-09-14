@@ -9,8 +9,8 @@ import {Subscription} from "rxjs";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  isConnected: boolean;
-  tokenSub: Subscription;
+  isConnected!: boolean;
+  tokenSub!: Subscription;
 
   constructor(private authService: AuthService, private router: Router) {
   }
@@ -18,11 +18,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.tokenSub = this.authService.token.subscribe(
       (token: string) => {
-        if (token) {
-          this.isConnected = true;
-        } else {
-          this.isConnected = false;
-        }
+        this.isConnected = !!token;
       }
     )
     if (this.authService.token.getValue()) {
@@ -31,11 +27,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.isConnected = false;
   }
 
-  onClickSignout() {
+  onClickSignOut() {
     this.authService
       .signout()
       .then(() => {
-        this.router.navigateByUrl('auth');
+        this.router.navigateByUrl('auth')
+          .catch(() => {
+            console.log('erreur')
+          })
       })
   }
 
