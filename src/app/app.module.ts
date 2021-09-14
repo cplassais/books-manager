@@ -13,7 +13,10 @@ import {AuthGuard} from "./guards/auth/auth.guard";
 import {HeaderComponent} from "./components/header/header.component";
 import {SingleBookViewComponent} from './views/single-book-view/single-book-view.component';
 import {ErrorViewComponent} from './views/error-view/error-view.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NewBookViewComponent} from './views/new-book-view/new-book-view.component';
+import {EditBookViewComponent} from './views/edit-book-view/edit-book-view.component';
+import {BookFormComponent} from './components/book-form/book-form.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +28,11 @@ import {FormsModule} from '@angular/forms';
     HeaderComponent,
     SingleBookViewComponent,
     ErrorViewComponent,
+    NewBookViewComponent,
+    EditBookViewComponent,
+    BookFormComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [BookService,
     AuthService, AuthGuard],
   bootstrap: [AppComponent],
